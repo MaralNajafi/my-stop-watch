@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+:root{
+    /* fonts */
+    --ff-main: 'Open Sans', sans-serif;
+    /* pri colors */
+    --clr-priBlue: #00acee;
+    --clr-priGreen: #41d448;
+    --clr-priRed: #d8062d;
+    --clr-priPurple: #6A008D;
+    --clr-priGrey: #dadada;
+    /* darker hue */
+    --clr-priBlue-dark: #007bab;
+    --clr-priGreen-dark: #3ab540;
+    --clr-priRed-dark: #c01a38;
+    --clr-priPurple-dark: #5d037b;
+    --clr-priGrey-dark: #cfcece;
+
+    --clr-disPurple: #9163a0;
+
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    font-family: var(--ff-main);
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+
+}
+
+
+
+.container{
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 25rem;
+    background-color: none;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 250ms ease-in;
+    background-color: #f4f4f4;
+
+}
+.lightSwitch{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.lightSwitch p{
+    font-size: 10px;
+    margin-left: 4px;
+}
+
+
+
+.darkModeContainer{
+    background-color: #000;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.wrapper h1{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 5px;
+    color: #535252;
+    /* border-bottom: solid 1px #8b8b8b; */
+ 
+}
+
+.timer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-size: 6rem;
+    margin-bottom: 10px;
+}
+
+
+
+.started{
+    color: var(--clr-priBlue);
+}
+
+.stopped{
+    color: var(--clr-priRed) ;
+    animation: blink-animation 1s steps(3, start) infinite;
+   
+}
+ 
+@keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+}
+
+.buttons{
+    display: flex;
+    gap: 20px;
+}
+
+button{
+    background: none;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    width: 6rem;
+    height: 2.3rem;
+    padding: 2px;
+    border-radius: 26px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background-color 80ms ease-in;
+}
+
+.startBtn{
+    background-color: var(--clr-priGreen);
+}
+
+.startBtn:hover{
+   background-color: var(--clr-priGreen-dark);
+}
+
+.stopBtn{
+    background-color: var(--clr-priRed);
+}
+
+.stopBtn:hover{
+    background-color: var(--clr-priRed-dark);
+ }
+
+.clearBtn{
+   color: #000;
+   background: #dadada;
+ 
+}
+
+.clearBtn:hover{
+    background-color: var(--clr-priGrey-dark);
+}
+
+
+/* lap == track */
+.lapLight{
+    background-color: transparent ;
+    border: solid 2px var(--clr-priBlue);
+    color: var(--clr-priBlue);
+ }
+
+
+ #lapBtn:disabled{
+    color: #cfcece7c;
+    border: solid 2px #cfcece7c;
+    cursor: default;
+ }
+ 
+.lapWrapper{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+    
+}
+
+.lapWrapper button{
+    width: calc(12rem + 20px);
+}
+
+.lapResultsWrapper{
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    border-top: #cfcece solid 2px;
+    height: 0rem;
+    width: 14em;
+    padding: 10px 0;
+    transition: all 350ms ease-in;
+      
+}
+
+.lapResultBody{
+    overflow-x: hidden;
+}
+
+.lapResultBody::-webkit-scrollbar{
+    width: 6px;
+    background-color: #cfcece;
+    border-radius: 26px;
+    
+}
+
+.lapResultBody::-webkit-scrollbar-thumb{
+    background-color: #53525277;
+    border-radius: 26px;
+  }
+
+.lapResultBody::-webkit-scrollbar-thumb:hover{
+    background-color: #5352529a;
+  }
+
+
+.lapResults div, .lapResultHedear div{
+    width: 8rem;
+    text-align: center;
+}
+.lapResults{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.lapResultHedear{
+    display: flex;
+    flex-direction: row;
+    color: #535252;
+}
